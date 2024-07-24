@@ -1,3 +1,13 @@
+custom:
+    categories:
+        - example
+    auth_mode: API_KEY
+    proxy:
+        base_url: https://localhost:8000/v1/${connectionConfig.APP_ID}
+        headers:
+            Authorization: ${apiKey}
+    docs: http://localhost:8000/doc.html
+
 accelo:
     categories:
         - invoicing

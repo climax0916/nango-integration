@@ -1,0 +1,43 @@
+integrations:
+    custom:
+        syncs:
+            data:
+                runs: every hour
+                description: This is sample
+                output: Data
+                endpoint: GET /data
+                sync_type: incremental
+        actions:
+            create-data:
+                description: create data
+                endpoint: POST /data
+                output: Data
+                input: DataInput
+            update-data:
+                description: update data
+                endpoint: PUT /data
+                output: Data
+                input: DataInput
+            remove-data:
+                endpoint: DELETE /data
+                input: IDInput
+                description: |
+                    delete data
+models:
+    DataInput:
+        id: string | null
+        projectName: string | null
+        developers: number | null
+    Data:
+        id: string
+        projectName: string
+        developers: number
+    DataOriginalModel:
+        id: string
+        projectName: string
+        developers: number
+        createdAt: Date
+        updatedAt: Date
+        deletedAt: Date
+    IDInput:
+        id: string
